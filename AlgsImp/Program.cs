@@ -4,6 +4,7 @@ using System.Text;
 using AlgsImp.Sort;
 using System.Diagnostics;
 using AlgsImp.Search;
+using AlgsImp.Miscellaneous;
 
 namespace AlgsImp
 {
@@ -15,11 +16,8 @@ namespace AlgsImp
         static double[] A2 = new double[10] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
         static void Main(string[] args) 
         {
-            QuickSorter<int> sorter = new QuickSorter<int>();
-            //GeneralMethod.RandomTestManyTimes(100,sorter, 50);
-            sorter.A = A1;
-            sorter.Sort();
-            GeneralMethod.Output(sorter.A);
+            //BackTrack<int>.Test1();
+            ArrayRemove<int>.Test();
             Console.Read();
         }
         static void Main2(string[] args)

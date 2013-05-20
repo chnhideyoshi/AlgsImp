@@ -14,12 +14,12 @@ namespace AlgsImp.Sort
         public void Sort()
         {
             int dynamicSize = A.Length;
-            Build_Heap();
+            Build_Heap();//build heap
             for (int i = A.Length - 1; i >= 1; i--)
             {
                 GeneralMethod.Swap(A , i, 0);
                 dynamicSize--;
-                Max_Heaplify(dynamicSize, 0);
+                Max_Heaplify(dynamicSize, 0);//
             }
         }
 

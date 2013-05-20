@@ -73,7 +73,7 @@ namespace AlgsImp.Sort
 
         private void bubble_sort(T[] array, int n)
         {
-            int i, j, flag;
+            int i, j;
             T temp;
             for (i = 0; i < n - 1; i++)
             {

@@ -26,13 +26,13 @@ namespace AlgsImp.Sort
                 QuickSort(A, pa + 1, ed);
             }
         }
-        private int Partition(T[] A,int st,int ed,int partionPos)
+        private int Partition(T[] A,int st,int ed,int partionPos)//SELECT VALUE ON PAPOS AND MAKE THE ARRAY(ST TO ED) INTO TWO PARTS: BEFORE RET SMALLER THAN VALUE AFTER BIGGER
         {
             if(partionPos!=st)
                 GeneralMethod.Swap(A, partionPos, st);
 
             T value = A[st];
-            int boundary=st;
+            int boundary=st;//BOUNDARY REFER TO THE LAST SMALLER INDEX
 
             for (int i = st+1; i <= ed; i++)
             {

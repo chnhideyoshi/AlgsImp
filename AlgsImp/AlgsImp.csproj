@@ -38,6 +38,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Miscellaneous\Arrangement.cs" />
+    <Compile Include="Miscellaneous\BackTrack.cs" />
+    <Compile Include="Miscellaneous\SearchKth.cs" />
+    <Compile Include="Miscellaneous\RemoveIssues.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search\BinarySearch.cs" />
@@ -48,6 +52,8 @@
     <Compile Include="Sort\MergeSort.cs" />
     <Compile Include="Sort\QuickSort.cs" />
     <Compile Include="Sort\SelectSort.cs" />
+    <Compile Include="Tree\RegionBinaryTree.cs" />
+    <Compile Include="Tree\RegionQuadTree.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
