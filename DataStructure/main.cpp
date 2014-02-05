@@ -88,16 +88,86 @@ void TestLinkedList()
 	list.InsertAfterTail(node3);
 	list.InsertAfterTail(node4);
 	list.InsertAfterTail(node5);
-	Node<int>* node6=new Node<int>(6);
+	Node<int>* node6=new Node<int>(0);
 	list.InsertBeforeHead(node6);
 	list.Display();
 	list.Reverse();
 	list.Display();
-}
+	Node<int>* node7=new Node<int>(8);
+	list.InsertAfter(node7,4);
+	list.Display();
+	list.DeleteAt(2);
+	list.Display();
+	list.DeleteTail();
+	list.Display();
+	list.DeleteHead();
+	list.Display();
 
+
+}
+void TestLinkedListR()
+{
+	LinkedListR<int> list;
+	NodeR<int>* node1=new NodeR<int>(1);
+	NodeR<int>* node2=new NodeR<int>(2);
+	NodeR<int>* node3=new NodeR<int>(3);
+	NodeR<int>* node4=new NodeR<int>(4);
+	NodeR<int>* node5=new NodeR<int>(5);
+	list.InsertAfterTail(node1);
+	list.InsertAfterTail(node2);
+	list.InsertAfterTail(node3);
+	list.InsertAfterTail(node4);
+	list.InsertAfterTail(node5);
+	NodeR<int>* node6=new NodeR<int>(0);
+	list.InsertBeforeHead(node6);
+	list.Display();
+	list.Reverse();
+	list.Display();
+	NodeR<int>* node7=new NodeR<int>(8);
+	list.InsertAfter(node7,4);
+	list.Display();
+	list.DeleteAt(2);
+	list.Display();
+	list.DeleteTail();
+	list.Display();
+	list.DeleteHead();
+	list.Display();
+
+
+}
+void TestLinkedListC()
+{
+	LinkedListR<int> list;
+	NodeR<int>* node1=new NodeR<int>(1);
+	NodeR<int>* node2=new NodeR<int>(2);
+	NodeR<int>* node3=new NodeR<int>(3);
+	NodeR<int>* node4=new NodeR<int>(4);
+	NodeR<int>* node5=new NodeR<int>(5);
+	list.InsertAfterTail(node1);
+	list.InsertAfterTail(node2);
+	list.InsertAfterTail(node3);
+	list.InsertAfterTail(node4);
+	list.InsertAfterTail(node5);
+	NodeR<int>* node6=new NodeR<int>(0);
+	list.InsertBeforeHead(node6);
+	list.Display();
+	list.Reverse();
+	list.Display();
+	NodeR<int>* node7=new NodeR<int>(8);
+	list.InsertAfter(node7,4);
+	list.Display();
+	list.DeleteAt(2);
+	list.Display();
+	list.DeleteTail();
+	list.Display();
+	list.DeleteHead();
+	list.Display();
+
+
+}
 int main()
 {
-	TestLinkedList();
+	TestLinkedListC();
 	system("pause");
 	return 0;
 }

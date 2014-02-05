@@ -158,16 +158,15 @@ public:
 		int len=GetLength();
 		if(len>=2)
 		{
-			Node<T>* pre=head;
-			Node<T>* p=pre->Next;
+			Node<T>* p=head;
 			Node<T>* pnext=p->Next;
-			head->Next=0;
+			p->Next=0;
 			while(pnext!=0)
 			{
-				p->Next=pre;
-				pre=p;
+				Node<T>* ppnext=pnext->Next;
+				pnext->Next=p;
 				p=pnext;
-				pnext=pnext->Next;
+				pnext=ppnext;
 			}
 			head=p;
 		}
