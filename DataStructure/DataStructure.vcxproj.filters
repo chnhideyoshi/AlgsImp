@@ -35,5 +35,8 @@
     <ClInclude Include="LinkedListR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
