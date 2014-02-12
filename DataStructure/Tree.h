@@ -9,10 +9,10 @@ struct TreeNode
 	TreeNode* Parent;
 	TreeNode* LChild;
 	TreeNode* RChild;
-	TreeNode(DataType value)
+	TreeNode(DataType value,TreeNode* parent)
 	{
 		this->Data=value;
-		this->Parent=0;
+		this->Parent=parent;
 		this->LChild=0;
 		this->RChild=0;
 	}
@@ -38,7 +38,7 @@ public:
 	{
 		if(root==0)
 		{
-			root=new TreeNode(value);
+			root=new TreeNode(value,0);
 			return;
 		}
 		else
@@ -62,14 +62,21 @@ public:
 				}
 			}
 			if(left)
-				p->LChild=new TreeNode(value);
+				p->LChild=new TreeNode(value,p);
 			else
-			    p->RChild=new TreeNode(value);
+			    p->RChild=new TreeNode(value,p);
 		}
 	}
-	void Delete(DataType value)
+	bool Delete(DataType value)
 	{
-
+	     TreeNode* node=Search(value);
+		 if(node!=0)
+		 {
+			 DeleteNode(node);
+			 return true;
+		 }
+		 else
+			 return false;
 	}
 	void Travel(TravelMethod method,void (*Process)(TreeNode* node))
 	{
@@ -90,10 +97,162 @@ public:
 	{
 		Travel(BreadthFirst,Print);
 	}
-private:
-	static void Print(TreeNode* node)
+    bool Exist(DataType value)
 	{
-		printf("node: %d,",node->Data);
+		TreeNode* node=Search(value);
+		return node!=0;
+	}
+	DataType GetMin()
+	{
+		return GetMinNode(root)->Data;
+	}
+	DataType GetMax()
+	{
+		return GetMaxNode(root)->Data;
+	}
+	DataType GetPredecessor(DataType value)
+	{
+		TreeNode* node=Search(value);
+		if(node==0)
+			throw std::exception();
+		TreeNode* p=GetPredecessorNode(node);
+		if(p!=0)
+			return p->Data;
+		else
+			throw new std::exception();
+	}
+	DataType GetSuccessor(DataType value)
+	{
+		TreeNode* node=Search(value);
+		if(node==0)
+			throw std::exception();
+		TreeNode* p=GetSuccessorNode(node);
+		if(p!=0)
+			return p->Data;
+		else
+			throw new std::exception();
+	}
+private:
+	bool IsLChild(TreeNode* node)
+	{
+		return node->Parent->LChild==node;
+	}
+	bool IsRChild(TreeNode* node)
+	{
+		return node->Parent->RChild==node;
+	}
+	void DeleteNode(TreeNode* node)
+	{
+		if(node->LChild==0&&node->RChild==0)
+		{
+			if(node==root)
+			{
+				delete root;
+				root=0;
+			}
+			else if(IsLChild(node))
+			{
+				node->Parent->LChild=0;
+				delete node;
+			}
+			else
+			{
+				node->Parent->RChild=0;
+				delete node;
+			}
+		}
+		else if(node->LChild==0&&node->RChild!=0)
+		{
+			if(IsLChild(node))
+			{
+				node->Parent->LChild=node->RChild;
+				node->RChild->Parent=node->Parent;
+				delete node;
+			}
+			else
+			{
+				node->Parent->RChild=node->RChild;
+				node->RChild->Parent=node->Parent;
+				delete node;
+			}
+		}
+		else if(node->LChild!=0&&node->RChild==0)
+		{
+			if(IsLChild(node))
+			{
+				node->Parent->LChild=node->LChild;
+				node->LChild->Parent=node->Parent;
+				delete node;
+			}
+			else
+			{
+				node->Parent->RChild=node->LChild;
+				node->LChild->Parent=node->Parent;
+				delete node;
+			}
+		}
+		else
+		{
+			TreeNode* suc=GetSuccessorNode(node);
+			node->Data=suc->Data;
+			DeleteNode(suc);
+		}
+	}
+	TreeNode* Search(DataType value)
+	{
+		TreeNode* node=root;
+		while(node!=0)
+		{
+			if(node->Data==value)
+				return node;
+			else if(node->Data<value)
+				node=node->RChild;
+			else
+				node=node->LChild;
+		}
+		return 0;
+	}
+	TreeNode* GetPredecessorNode(TreeNode* node)
+	{
+		if (node->LChild != 0)  
+			return GetMaxNode(node->LChild);  
+		TreeNode* y = node->Parent;  
+		while (y != NULL && node == y->LChild)  
+		{  
+			node = y;  
+			y = y->Parent;  
+		}  
+		return y;  
+	}
+	TreeNode* GetSuccessorNode(TreeNode* node)
+	{
+		if (node->RChild != 0)  
+			return GetMinNode(node->RChild);  
+		TreeNode* y = node->Parent;  
+		while (y != NULL && node == y->RChild)  
+		{  
+			node = y;  
+			y = y->Parent;  
+		}  
+		return y;  
+	}
+	TreeNode* GetMinNode(TreeNode* node)
+	{
+		if(node==0)
+			throw std::exception();
+		TreeNode* p = node;  
+		while (p->LChild != 0)  
+			p = p->LChild;  
+		return p;  
+	}
+	TreeNode* GetMaxNode(TreeNode* node)
+	{
+		if(node==0)
+			throw std::exception();
+		TreeNode* p = node;  
+		while (p->RChild != 0)  
+			p = p->RChild;  
+		return p;  
 	}
 	void PreOrderTraversal(TreeNode* node)
 	{
@@ -111,23 +270,23 @@ private:
 	{
 		if(node->LChild!=0)
 		{
-			PreOrderTraversal(node->LChild);
+			InOrderTraversal(node->LChild);
 		}
 		Action(node);
 		if(node->RChild!=0)
 		{
-			PreOrderTraversal(node->RChild);
+			InOrderTraversal(node->RChild);
 		}
 	}
 	void PostOrderTraversal(TreeNode* node)
 	{
 		if(node->LChild!=0)
 		{
-			PreOrderTraversal(node->LChild);
+			PostOrderTraversal(node->LChild);
 		}
 		if(node->RChild!=0)
 		{
-			PreOrderTraversal(node->RChild);
+			PostOrderTraversal(node->RChild);
 		}
 		Action(node);
 	}
@@ -151,6 +310,11 @@ private:
 				q.push(t->RChild);
 			}
 		}
+	}
+public:
+	 static void Print(TreeNode* node)
+	{
+		printf("%d,",node->Data);
 	}
 };
 

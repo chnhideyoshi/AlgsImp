@@ -8,6 +8,8 @@
 #include "LinkedListR.h"
 #include "Tree.h"
 
+using namespace std;
+
 void TestVector()
 {
 	Vector<int> v;
@@ -168,7 +170,7 @@ void TestLinkedListC()
 }
 void TestTree()
 {
-	BinarySearchTree tree;
+	/*BinarySearchTree tree;
 	tree.Insert(5);
 	tree.Insert(3);
 	tree.Insert(4);
@@ -178,7 +180,32 @@ void TestTree()
 	tree.Insert(6);
 	tree.Insert(8);
 	tree.Insert(7);
-	tree.Display();
+	tree.Display();*/
+	BinarySearchTree bstree;
+	bstree.Insert(32);
+	bstree.Insert(21);
+	bstree.Insert(46);
+	bstree.Insert(54);
+	bstree.Insert(16);
+	bstree.Insert(38);
+	bstree.Insert(70);
+	cout<<"inorder tree walk is: ";
+	bstree.Travel(InOrder,BinarySearchTree::Print);
+	cout<<"\nmax value is: "<<bstree.GetMax()<<endl;
+	cout<<"min value is: "<<bstree.GetMin()<<endl;
+	bool ptnode = bstree.Exist(38);
+	if(ptnode)
+		cout<<"the element 38 is exist in the binary tree.\n";
+	else
+		cout<<"the element 38 is not exist in the binary tree.\n";
+	cout<<"the successor of 38 is: "<<bstree.GetSuccessor(38)<<endl;
+	cout<<"the predecessor of 38 is:"<<bstree.GetPredecessor(38)<<endl;
+	if(bstree.Delete(46))
+		cout<<"delete 46 successfully"<<endl;
+	else
+		cout<<"delete 46 failed"<<endl;
+	cout<<"inorder tree walk is: ";
+	bstree.Travel(InOrder,BinarySearchTree::Print);
 }
 
 int main()
