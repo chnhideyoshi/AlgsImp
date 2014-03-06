@@ -1,13 +1,16 @@
 #include <stdio.h>
 #include <iostream>
 #include <stdlib.h>
+#define DataType int
 #include "Vector.h"
 #include "Stack.h"
 #include "Queue.h"
 #include "LinkedList.h"
 #include "LinkedListR.h"
 #include "Tree.h"
-
+#include "Graph.h"
+#include "ShortestPath.h"
+#include "MinimumTree.h"
 using namespace std;
 
 void TestVector()
@@ -208,9 +211,45 @@ void TestTree()
 	bstree.Travel(InOrder,BinarySearchTree::Print);
 }
 
+void TestShortestPath()
+{
+	UndirectedWeightedGraph graph(6);
+	graph.AddEdge(0,1,4);
+	graph.AddEdge(0,2,2);
+	graph.AddEdge(1,2,1);
+	graph.AddEdge(1,4,3);
+	graph.AddEdge(2,4,2);
+	graph.AddEdge(2,3,4);
+	graph.AddEdge(3,4,3);
+	graph.AddEdge(3,5,2);
+	graph.AddEdge(4,5,2);
+	DijkstraProcessor dp(&graph,0);
+	dp.ExecuteDijkstra();
+	std::vector<int> path1;
+	std::vector<int> path2;
+	std::vector<int> path3;
+	std::vector<int> path4;
+	std::vector<int> path5;
+	dp.GetShortestPathTo(1,path1);
+	dp.GetShortestPathTo(2,path2);
+	dp.GetShortestPathTo(3,path3);
+	dp.GetShortestPathTo(4,path4);
+	dp.GetShortestPathTo(5,path5);
+	DijkstraProcessor::PrintPath(path1);
+	DijkstraProcessor::PrintPath(path2);
+	DijkstraProcessor::PrintPath(path3);
+	DijkstraProcessor::PrintPath(path4);
+	DijkstraProcessor::PrintPath(path5);
+	printf("%d\n",dp.GetShortestDistenceTo(1));
+	printf("%d\n",dp.GetShortestDistenceTo(2));
+	printf("%d\n",dp.GetShortestDistenceTo(3));
+	printf("%d\n",dp.GetShortestDistenceTo(4));
+	printf("%d\n",dp.GetShortestDistenceTo(5));
+}
+
 int main()
 {
-	TestTree();
+	TestShortestPath();
 	system("pause");
 	return 0;
 }

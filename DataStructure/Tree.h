@@ -1,6 +1,5 @@
 #ifndef TREE_H
 #define TREE_H
-#define DataType int
 #include <queue>
 
 struct TreeNode
@@ -17,7 +16,7 @@ struct TreeNode
 		this->RChild=0;
 	}
 };
-enum TravelMethod
+enum TreeTravelMethod
 {
 	PreOrder=0,
 	InOrder=1,
@@ -78,7 +77,7 @@ public:
 		 else
 			 return false;
 	}
-	void Travel(TravelMethod method,void (*Process)(TreeNode* node))
+	void Travel(TreeTravelMethod method,void (*Process)(TreeNode* node))
 	{
 		if(Process==0||root==0)
 			return;
