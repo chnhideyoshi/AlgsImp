@@ -31,6 +31,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Hash">
+      <UniqueIdentifier>{0a59bdff-3113-4548-a2a1-6118128cfaa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Heap">
+      <UniqueIdentifier>{fdd57aaf-a50d-4141-98cf-82060d4504f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -67,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="Base.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="BinaryHeap.h">
+      <Filter>Header Files\Heap</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -11,6 +11,7 @@
 #include "Graph.h"
 #include "ShortestPath.h"
 #include "MinimumTree.h"
+#include "BinaryHeap.h"
 using namespace std;
 
 void TestVector()
@@ -210,7 +211,6 @@ void TestTree()
 	cout<<"inorder tree walk is: ";
 	bstree.Travel(InOrder,BinarySearchTree::Print);
 }
-
 void TestShortestPath()
 {
 	UndirectedWeightedGraph graph(6);
@@ -246,10 +246,21 @@ void TestShortestPath()
 	printf("%d\n",dp.GetShortestDistenceTo(4));
 	printf("%d\n",dp.GetShortestDistenceTo(5));
 }
+void TestHeap()
+{
+	int a[10]={2,5,1,4,6,3,9,8,11,10};
+	int len=sizeof(a)/sizeof(int);
+	BinaryHeap<int> heap;
+	heap.HeapSort(a,len);
+	for(int i=0;i<len;i++)
+	{
+		printf("%d,",a[i]);
+	}
+}
 
 int main()
 {
-	TestShortestPath();
+	TestHeap();
 	system("pause");
 	return 0;
 }
