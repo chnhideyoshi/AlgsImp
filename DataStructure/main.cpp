@@ -12,6 +12,8 @@
 #include "ShortestPath.h"
 #include "MinimumTree.h"
 #include "BinaryHeap.h"
+#include "HashTable.h"
+
 using namespace std;
 
 void TestVector()
@@ -257,10 +259,31 @@ void TestHeap()
 		printf("%d,",a[i]);
 	}
 }
+void TestHash()
+{
+	HashTable_LinkedList<int,int> hash;
+	int rand[17]={1,2,3,1,2,3,1,3,1,2,3,1,2,3,1,1,1};
+	for(int i=0;i<17;i++)
+	{
+		if(!hash.Exist(rand[i]))
+		{
+			hash.SetValue(rand[i],1);
+		}
+		else
+		{
+			int count=hash.GetValue(rand[i]);
+			count++;
+			hash.SetValue(rand[i],count);
+		}
+	}
+	printf("%d: \n",hash.GetValue(1));
+	printf("%d: \n",hash.GetValue(2));
+	printf("%d: \n",hash.GetValue(3));
+}
 
 int main()
 {
-	TestHeap();
+	TestHash();
 	system("pause");
 	return 0;
 }

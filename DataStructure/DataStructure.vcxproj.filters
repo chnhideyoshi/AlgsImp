@@ -77,5 +77,8 @@
     <ClInclude Include="BinaryHeap.h">
       <Filter>Header Files\Heap</Filter>
     </ClInclude>
+    <ClInclude Include="HashTable.h">
+      <Filter>Header Files\Hash</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

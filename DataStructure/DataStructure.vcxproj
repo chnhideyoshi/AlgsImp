@@ -65,6 +65,7 @@
   <ItemGroup>
     <ClInclude Include="Base.h" />
     <ClInclude Include="BinaryHeap.h" />
+    <ClInclude Include="HashTable.h" />
     <ClInclude Include="ShortestPath.h" />
     <ClInclude Include="LinkedList.h" />
     <ClInclude Include="LinkedListR.h" />
