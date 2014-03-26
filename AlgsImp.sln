@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DataStructure", "DataStructure\DataStructure.vcxproj", "{412C8960-E920-458F-A798-D7727B9E9565}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Algorithms", "Algorithms\Algorithms.vcxproj", "{C649084B-1B60-4227-93EB-9659DFB4BD71}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -47,6 +49,16 @@ Global
 		{412C8960-E920-458F-A798-D7727B9E9565}.Release|Win32.ActiveCfg = Release|Win32
 		{412C8960-E920-458F-A798-D7727B9E9565}.Release|Win32.Build.0 = Release|Win32
 		{412C8960-E920-458F-A798-D7727B9E9565}.Release|x86.ActiveCfg = Release|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Debug|Win32.Build.0 = Debug|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Debug|x86.ActiveCfg = Debug|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Release|Win32.ActiveCfg = Release|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Release|Win32.Build.0 = Release|Win32
+		{C649084B-1B60-4227-93EB-9659DFB4BD71}.Release|x86.ActiveCfg = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
